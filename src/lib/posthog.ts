@@ -26,7 +26,7 @@ export function isPostHogReady() {
 }
 
 // Safe capture function that only sends events if PostHog is initialized
-export function captureEvent(eventName: string, properties?: Record<string, any>) {
+export function captureEvent(eventName: string, properties?: Record<string, string | number | boolean | null>) {
   if (isInitialized) {
     posthog.capture(eventName, properties);
   }
