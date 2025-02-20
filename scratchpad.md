@@ -30,6 +30,23 @@ Error: Parsing error: ',' expected.
     - Only needed for JSX content, not string literals
     - Affects text in <p> tags and similar JSX elements
 
+## Progress
+
+[X] Fixed unused imports
+  - Removed HomeTaskPrioritization and HomeSocialBand from landing/page.tsx
+  - Removed ContactForm from HomeContact.tsx
+
+[X] Fixed unescaped HTML entities
+  - Added proper HTML entity escaping in HomeSmartFeature.tsx
+
+[X] Fixed Next.js Link usage
+  - Replaced <a> with Next.js Link in Header.tsx
+
+[X] Fixed TypeScript type issues
+  - Made withCtaTracking HOC more flexible with generic type parameters
+  - Added ESLint disable comment for props used in HOC
+  - Fixed Meta Pixel type definitions to handle undefined parameters
+
 ## Current Status
 - ✅ Build successful!
 - Fixed all string and character issues:
@@ -44,6 +61,22 @@ Error: Parsing error: ',' expected.
 - For nested quotes, use double quotes for the outer string and single quotes for inner quotes
 - Always validate string content for proper escaping and character usage
 
+## Additional Lessons
+
+1. When working with HOCs and TypeScript:
+   - Make HOCs flexible with generic type parameters
+   - Consider using ESLint disable comments when props are intentionally destructured for HOC use
+   - Be explicit about element types when dealing with event handlers
+
+2. Meta Pixel API type considerations:
+   - Allow for undefined parameters in type definitions
+   - Structure types to match the API's actual behavior (arrays of arguments)
+   - Use union types to handle multiple valid parameter types
+
+3. Next.js best practices:
+   - Always use Next.js Link component for internal navigation
+   - Avoid using raw <a> tags for routes handled by Next.js
+
 ## Next Steps
 1. Test the component in the browser
 2. Document string formatting guidelines:
@@ -52,3 +85,7 @@ Error: Parsing error: ',' expected.
    - Avoid special Unicode characters
 3. Consider adding ESLint rules to enforce these guidelines
 4. Share these learnings with the teamscount messaging are consistent
+
+[ ] Test the build to ensure all type errors are resolved
+[ ] Review any remaining ESLint warnings or errors
+[ ] Consider adding documentation about type handling for future reference

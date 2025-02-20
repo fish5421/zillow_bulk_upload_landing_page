@@ -2,15 +2,15 @@
 
 let isInitialized = false;
 
-type MetaPixelArgs = string | Record<string, unknown>[];
+type MetaPixelArg = string | Record<string, unknown> | undefined;
 
 interface MetaPixelFunction {
-  (...args: MetaPixelArgs[]): void;
-  callMethod?: (...args: MetaPixelArgs[]) => void;
-  push?: (...args: MetaPixelArgs[]) => void;
+  (...args: MetaPixelArg[]): void;
+  callMethod?: (...args: MetaPixelArg[]) => void;
+  push?: (...args: MetaPixelArg[]) => void;
   loaded?: boolean;
   version?: string;
-  queue?: MetaPixelArgs[];
+  queue?: MetaPixelArg[][];
 }
 
 declare global {
@@ -28,7 +28,7 @@ export function initializeMetaPixel() {
   const b = document;
   
   function t(): void {
-    const n = function(this: Window, ...args: MetaPixelArgs[]) {
+    const n = function(this: Window, ...args: MetaPixelArg[]) {
       if ((n as MetaPixelFunction).callMethod) {
         (n as MetaPixelFunction).callMethod?.apply(n, args);
       } else {
