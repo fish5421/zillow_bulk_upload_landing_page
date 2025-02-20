@@ -2,12 +2,15 @@
 
 let isInitialized = false;
 
-interface MetaPixelFunction extends Function {
-  callMethod?: Function;
-  push?: Function;
+type MetaPixelArgs = string | Record<string, unknown>[];
+
+interface MetaPixelFunction {
+  (...args: MetaPixelArgs[]): void;
+  callMethod?: (...args: MetaPixelArgs[]) => void;
+  push?: (...args: MetaPixelArgs[]) => void;
   loaded?: boolean;
   version?: string;
-  queue?: any[];
+  queue?: MetaPixelArgs[];
 }
 
 declare global {
@@ -25,7 +28,7 @@ export function initializeMetaPixel() {
   const b = document;
   
   function t(): void {
-    const n = function(this: any, ...args: any[]) {
+    const n = function(this: Window, ...args: MetaPixelArgs[]) {
       if ((n as MetaPixelFunction).callMethod) {
         (n as MetaPixelFunction).callMethod?.apply(n, args);
       } else {
@@ -59,7 +62,7 @@ export function initializeMetaPixel() {
 }
 
 // Safe tracking function that only works after initialization
-export function trackMetaEvent(eventName: string, parameters?: Record<string, any>) {
+export function trackMetaEvent(eventName: string, parameters?: Record<string, unknown>) {
   if (!isInitialized) return;
   window.fbq('track', eventName, parameters);
 }

@@ -8,11 +8,11 @@ interface CtaTrackingProps<T extends HTMLElement = HTMLElement> {
   onClick?: (e: React.MouseEvent<T>) => void;
 }
 
-export function withCtaTracking<P extends CtaTrackingProps<any>>(
+export function withCtaTracking<P extends CtaTrackingProps<HTMLElement>>(
   WrappedComponent: ComponentType<P>
 ) {
   return function CtaTrackingComponent(props: P) {
-    const handleClick = (e: React.MouseEvent<any>) => {
+    const handleClick = (e: React.MouseEvent<HTMLElement>) => {
       // Track the CTA click
       captureEvent('cta_clicked', {
         location: props.location || 'unknown',

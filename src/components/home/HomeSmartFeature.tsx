@@ -24,7 +24,7 @@ export default function HomeSmartFeature() {
                   Enrich & Identify
                 </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Upload your territory or lead list and watch our system instantly reveal each property's hidden potential—from valuation history to neighborhood development trends.
+                  Upload your territory or lead list and watch our system instantly reveal each property&apos;s hidden potential—from valuation history to neighborhood development trends.
                 </p>
               </div>
               <div className="space-y-2">

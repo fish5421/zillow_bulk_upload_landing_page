@@ -5,7 +5,6 @@ import styles from '@/styles/pricing.module.css';
 
 import { RadioGroup, RadioGroupItem } from '@/components/shared/ui/radio-group';
 import { Label } from '@/components/shared/ui/label';
-import { Button } from '@/components/shared/ui/button';
 import { TrackedButton } from '@/components/shared/ui/tracked-button';
 import { ContactOverlay } from '@/components/contact/ContactOverlay';
 

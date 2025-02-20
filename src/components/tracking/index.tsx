@@ -2,7 +2,6 @@
 import { TimeTracker } from './TimeTracker';
 import { ScrollTracker } from './ScrollTracker';
 import { LeadSourceTracker } from './LeadSourceTracker';
-import { cookieConsentGiven } from '../shared/CookieBanner';
 import { isPostHogReady } from '@/lib/posthog';
 export { withCtaTracking } from './withCtaTracking';
 
