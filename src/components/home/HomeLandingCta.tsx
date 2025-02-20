@@ -47,7 +47,7 @@ export default function HomeLandingCta() {
         </TrackedButton>
 
         <LandingDiscount
-          discountValueText="25% off"
+          discountValueText="25% off your next order"
           discountDescriptionText="for the first 10 customers (2 left)"
         />
 

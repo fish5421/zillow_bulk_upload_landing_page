@@ -49,7 +49,7 @@ export default function HomeSmartFeature() {
 
             <div className="bg-primary-50 dark:bg-primary-900/20 p-4 rounded-lg border border-primary-100 dark:border-primary-800">
               <p className="text-primary-700 dark:text-primary-100 text-sm italic font-medium">
-                "I started with 100 properties, zeroed in on 25 high-value leads using enriched data, and secured three listings in two weeks. Data-driven pitches turned cold calls into real conversations."
+                &quot;I started with 100 properties, zeroed in on 25 high-value leads using enriched data, and secured three listings in two weeks. Data-driven pitches turned cold calls into real conversations.&quot;
               </p>
             </div>
 
