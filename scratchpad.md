@@ -89,3 +89,26 @@ Error: Parsing error: ',' expected.
 [ ] Test the build to ensure all type errors are resolved
 [ ] Review any remaining ESLint warnings or errors
 [ ] Consider adding documentation about type handling for future reference
+
+## Subdirectory Move Plan
+[X] 1. Understand the current routing structure.
+[ ] 2. Identify the files related to the landing page.
+[X] 3. Modify the routing configuration to serve the landing page from the root.
+    [X] 3.1 Move the contents of `/app/landing` to `/app`.
+    [X] 3.2 Update any necessary imports or references.
+[X] 4. Test the changes.
+[X] 5. Update the scratchpad with lessons learned.
+
+# Serve the Landing Page from Its Own Root
+
+## Task
+Change the landing page to serve from its own root.
+
+## Plan
+[X] 1. Understand the current routing structure.
+[X] 2. Identify the files related to the landing page.
+[X] 3. Modify the routing configuration to serve the landing page from the root.
+[X] 4. Test the changes.
+[X] 5. Update the scratchpad with lessons learned.
+
+## Lessons
