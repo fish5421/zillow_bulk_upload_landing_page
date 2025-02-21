@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
-  basePath: '',
+  assetPrefix: 'https://zillow-bulk-upload-landing-page.vercel.app',
   experimental: {
     optimizePackageImports: ['embla-carousel-react']
   },
