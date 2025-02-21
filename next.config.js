@@ -1,5 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async rewrites() {
+    return [
+      {
+        source: '/landing',
+        destination: process.env.SECOND_APP_URL || 'http://localhost:3001',
+      },
+    ];
+  },
   reactStrictMode: true,
   poweredByHeader: false,
   experimental: {
