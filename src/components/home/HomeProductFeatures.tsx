@@ -33,10 +33,10 @@ export default function HomeProductFeatures() {
             ]}
           />
 
-          <TrackedButton 
-            className="mt-8" 
-            variant="secondary" 
-            size="lg" 
+          <TrackedButton
+            className="mt-8"
+            variant="secondary"
+            size="lg"
             location="product_features_section"
             buttonText="Get Instant Property Insights"
             asChild
@@ -49,7 +49,7 @@ export default function HomeProductFeatures() {
           </p>
         </>
       }
-      imageSrc="/undraw_services_dhxj.svg"
+      imageSrc="https://zillow-bulk-upload-landing-page.vercel.app/undraw_services_dhxj.svg"
       imageAlt="Services illustration"
       minHeight={250}
       imagePosition="left"
