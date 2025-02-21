@@ -1,15 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  async rewrites() {
-    return [
-      {
-        source: '/landing',
-        destination: process.env.SECOND_APP_URL || 'http://localhost:3001',
-      },
-    ];
-  },
   reactStrictMode: true,
   poweredByHeader: false,
+  basePath: '',
   experimental: {
     optimizePackageImports: ['embla-carousel-react']
   },
@@ -21,6 +14,18 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/landing',
+        destination: '/',
+      },
+      {
+        source: '/landing/:path*',
+        destination: '/:path*',
+      },
+    ];
   },
   webpack: (config, { isServer }) => {
     // Optimize chunk loading
