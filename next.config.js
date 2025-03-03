@@ -2,9 +2,12 @@
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
-  assetPrefix: 'https://zillow-bulk-upload-landing-page.vercel.app',
+  assetPrefix: process.env.NODE_ENV === 'production' ? 'https://zillow-bulk-upload-landing-page.vercel.app' : '',
   experimental: {
     optimizePackageImports: ['embla-carousel-react']
+  },
+  env: {
+    NEXT_PUBLIC_BYPASS_COOKIE_CONSENT: process.env.NEXT_PUBLIC_BYPASS_COOKIE_CONSENT || 'false'
   },
   images: {
     remotePatterns: [

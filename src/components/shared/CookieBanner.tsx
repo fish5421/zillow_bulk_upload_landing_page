@@ -6,8 +6,19 @@ import { Button } from "./ui/button";
 
 type ConsentStatus = 'yes' | 'no' | 'undecided';
 
+// Check if cookie consent bypass is enabled via environment variable
+const isBypassEnabled = () => {
+  return process.env.NEXT_PUBLIC_BYPASS_COOKIE_CONSENT === 'true';
+};
+
 export function cookieConsentGiven(): ConsentStatus {
   if (typeof window === 'undefined') return 'undecided';
+  
+  // If bypass is enabled, always return 'yes'
+  if (isBypassEnabled()) {
+    return 'yes';
+  }
+  
   const consent = localStorage.getItem('cookie_consent');
   if (!consent || !['yes', 'no'].includes(consent)) {
     return 'undecided';
@@ -19,7 +30,14 @@ export function CookieBanner() {
   const [consentGiven, setConsentGiven] = useState<ConsentStatus>('undecided');
 
   useEffect(() => {
-    setConsentGiven(cookieConsentGiven());
+    const consent = cookieConsentGiven();
+    setConsentGiven(consent);
+    
+    // Auto-initialize tracking if bypass is enabled or consent was given
+    if (consent === 'yes') {
+      initializePostHog();
+      initializeMetaPixel();
+    }
   }, []);
 
 
@@ -36,7 +54,8 @@ export function CookieBanner() {
     setConsentGiven('no');
   };
 
-  if (consentGiven !== 'undecided') {
+  // If bypass is enabled or consent has been given, don't show the banner
+  if (isBypassEnabled() || consentGiven !== 'undecided') {
     return null;
   }
 
